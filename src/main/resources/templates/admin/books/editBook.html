@@ -1,0 +1,49 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="layouts/main_no_sidebar.html">
+<div layout:fragment="myContent" >
+    <div class="row">
+        <div class="col-sm-8">
+            <form th:action="@{'/editBook'}" method="post" class="form">
+                <div class="form-group">
+                    <label>
+                        NAME :
+                    </label>
+                    <input type="text" name="name" th:value="${book.name}" class="form-control" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label>
+                        PRICE :
+                    </label>
+                    <input type="number" name="price" th:value="${book.price}" class="form-control" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label>
+                        AUTHOR :
+                    </label>
+                    <input type="text" name="author" th:value="${book.author}" class="form-control" required autofocus>
+                </div>
+                <div class="form-group">
+                    <label>
+                        DESCRIPTION :
+                    </label>
+                    <input type="text" name="description" th:value="${book.description}" class="form-control">
+                </div>
+                <div class="form-group">
+                    <select multiple name="genre" required autofocus>
+                        <option th:each = "i : ${genres}" th:value="${i.id}" th:text="${i.name}">
+                        </option>
+                    </select>
+                </div>
+                <input type="hidden" name="id" th:value="${book.id}">
+                <button class="btn btn-success">Edit BOOK</button>
+            </form>
+            <form th:action="@{'/deleteBook'}" method="post" class="form">
+                <input type="hidden" name="id" th:value="${book.id}" class="form-control">
+                <button class="btn btn-success">Delete BOOK</button>
+            </form>
+        </div>
+    </div>
+</div>
+</html>

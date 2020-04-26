@@ -1,0 +1,28 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="layouts/main.html">
+    <div layout:fragment="myContent" >
+        <div class="row">
+            <div class="col-sm-8">
+                <form class="form-signin" th:action="@{'/auth'}" method="post">
+                    <h2 class="form-signin-heading">Please sign in</h2>
+                    <p th:if="${param.error}" class="error">Invalid user, password, or domain</p>
+                    <p>
+                        <label for="user_email" class="sr-only">Email</label>
+                        <input type="email"  id="user_email" name="user_email" class="form-control"
+                               placeholder="Email" required autofocus/>
+                    </p>
+                    <p>
+                        <label for="user_password" class="sr-only">Password</label>
+                        <input type="password" id="user_password" minlength="6" name="user_password" class="form-control"
+                               placeholder="Password" required autofocus/>
+                    </p>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br/>
+                    <p><a href="/" th:href="@{/}">Back to home page</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+
+</html>

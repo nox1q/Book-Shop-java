@@ -1,0 +1,95 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="layouts/main.html">
+<div layout:fragment="myContent" >
+    <div class="row">
+        <div class="col-sm-8">
+            <form class="form-signin" th:action="@{'/addUser'}" method="post">
+                <p th:if="${#request.getParameter('message')} != null" th:text="${#request.getParameter('message')}"></p>
+                <p th:if="${param.error}" class="error">Invalid name, password, email</p>
+                <p>
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email"  id="email" name="email" class="form-control"
+                           placeholder="Email" required autofocus/>
+                </p>
+                <p>
+                    <label for="fullName" class="sr-only">FullName</label>
+                    <input type="text" id="fullName" name="fullName" class="form-control"
+                           placeholder="FullName" required autofocus/>
+                </p>
+                <p>
+                    <label for="password" class="sr-only">Password</label>
+                    <input type="password" id="password" minlength="6" name="password" class="form-control"
+                           placeholder="Password" required autofocus/>
+                </p>
+                <p>
+                    <label for="rePassword" class="sr-only">Password</label>
+                    <input type="password" id="rePassword" minlength="6" name="rePassword" class="form-control"
+                           placeholder="RePassword" required autofocus/>
+                </p>
+                <div class="form-group">
+                    <select multiple name="roles">
+                        <option th:each = "i : ${roles}" th:value="${i.id}" th:text="${i.role}">
+                        </option>
+                    </select>
+                </div>
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br/>
+                <p><a href="/" th:href="@{/}">Back to home page</a></p>
+            </form>
+            <!--            <form name="f" th:action="@{'/addUser'}" method="post" class="form">-->
+            <!--                <div class="form-group">-->
+            <!--                    <label>-->
+            <!--                        EMAIL :-->
+            <!--                    </label>-->
+            <!--                    <input type="email" name="email" class="form-control">-->
+            <!--                </div>-->
+            <!--                <div class="form-group">-->
+            <!--                    <label>-->
+            <!--                        PASSWORD :-->
+            <!--                    </label>-->
+            <!--                    <input type="password" name="password" class="form-control">-->
+            <!--                </div>-->
+            <!--                <div class="form-group">-->
+            <!--                    <label>-->
+            <!--                        RE-PASSWORD :-->
+            <!--                    </label>-->
+            <!--                    <input type="password" name="rePassword" class="form-control">-->
+            <!--                </div>-->
+            <!--                <div class="form-group">-->
+            <!--                    <label>-->
+            <!--                        FULL-NAME :-->
+            <!--                    </label>-->
+            <!--                    <input type="text" name="fullName" class="form-control">-->
+            <!--                </div>-->
+            <!--                <script type="text/javascript">-->
+            <!--                    function validate() {-->
+            <!--                        if (document.f.email.value == "" && document.f.password.value == "") {-->
+            <!--                            alert("Email and password are required");-->
+            <!--                            document.f.username.focus();-->
+            <!--                            return false;-->
+            <!--                        }-->
+            <!--                        if (document.f.email.value == "") {-->
+            <!--                            alert("Email is required");-->
+            <!--                            document.f.username.focus();-->
+            <!--                            return false;-->
+            <!--                        }-->
+            <!--                        if (document.f.password.value == "") {-->
+            <!--                            alert("Password is required");-->
+            <!--                            document.f.password.focus();-->
+            <!--                            return false;-->
+            <!--                        }-->
+            <!--                        if (document.f.password.value != document.f.rePassword.value) {-->
+            <!--                            alert("Passwords are not equal");-->
+            <!--                            document.f.password.focus();-->
+            <!--                            return false;-->
+            <!--                        }-->
+            <!--                    }-->
+            <!--                </script>-->
+            <!--                <button class="btn btn-success">REGISTER</button>-->
+            <!--            </form>-->
+        </div>
+    </div>
+</div>
+
+</html>

@@ -1,0 +1,51 @@
+<html xmlns:th="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="layouts/main.html">
+<div layout:fragment="myContent" >
+
+    <div class="row">
+        <div class="col-sm-12">
+            <table cellpadding="20" class="table table-stripped">
+                <thead>
+                <tr>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Book
+                    </th>
+                    <th>
+                        User
+                    </th>
+                    <th>
+                        COUNT
+                    </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each = "i : ${orders}">
+                    <td th:text = "${i.id}"></td>
+                    <td th:text = "${i.book.name}"></td>
+                    <td th:text = "${i.user.fullName}"></td>
+                    <td th:text = "${i.count}"></td>
+                    <td >
+                        <form th:action="@{'/deleteOrder'}" method="post" class="form">
+                            <input type="hidden" name="id" th:value="${i.id}" class="form-control">
+                            <button class="btn btn-success">Delete Order</button>
+                        </form>
+                    </td>
+                </tr>
+                </tbody>
+                <tfoot>
+                <tr>
+                    <td colspan="4">
+                        <a class="btn btn-info btn-sm ml-1" th:each = "i : ${#numbers.sequence(1, tabSize)}" th:text = ${i} th:href = "@{'/?page=' + ${i}}"></a>
+                    </td>
+                </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</div>
+</html>
