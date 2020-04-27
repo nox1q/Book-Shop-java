@@ -28,7 +28,7 @@
                     <input type="password" id="rePassword" minlength="6" name="rePassword" class="form-control"
                            placeholder="RePassword" required autofocus/>
                 </p>
-                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button><br/>
+                <button class="btn btn-lg btn-primary btn-block" type="submit" th:text="#{log.signIn}">Sign in</button><br/>
                 <p><a href="/" th:href="@{/}">Back to home page</a></p>
             </form>
 <!--            <form name="f" th:action="@{'/addUser'}" method="post" class="form">-->

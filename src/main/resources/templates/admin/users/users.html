@@ -22,10 +22,10 @@
                             EMAIL
                         </th>
                         <th>
-                            FULL NAME
+                            <span th:text="#{users.fullName}"></span>
                         </th>
                         <th>
-                            EDIT
+                            <span th:text="#{users.edit}"></span>
                         </th>
                     </tr>
                     </thead>
@@ -36,7 +36,7 @@
                         <td th:text = "${usr.fullName}"></td>
                         <td th:each = "i : ${usr.roles}"  th:text="${i.role}"></td>
                         <td >
-                            <a th:href = "@{'editUser/'+${usr.id}}">edit</a>
+                            <a th:href = "@{'editUser/'+${usr.id}}" th:text="#{users.edit}">edit</a>
                         </td>
                     </tr>
                     </tbody>

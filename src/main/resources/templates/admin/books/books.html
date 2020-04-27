@@ -30,7 +30,7 @@
                     <td th:text = "${i.author}"></td>
                     <td>
 
-                        <a th:href = "@{'editBook/'+${i.id}}">edit</a>
+                        <a th:href = "@{'editBook/'+${i.id}}"><span th:text="#{adminBook.editBook}"></span></a>
                     </td>
                 </tr>
                 </tbody>

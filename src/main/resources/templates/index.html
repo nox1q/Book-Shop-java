@@ -29,7 +29,7 @@
                         <td th:text = "${i.price}"></td>
                         <td th:text = "${i.author}"></td>
                         <td>
-                            <a th:href = "@{'/details/'+${i.id}}">DETAILS</a>
+                            <a th:href = "@{'/details/'+${i.id}}"><span th:text="#{book.details}"></span></a>
                         </td>
                     </tr>
                     </tbody>

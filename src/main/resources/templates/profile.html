@@ -12,7 +12,7 @@
         </div>
         <div class="row">
             <div class="col-sm-8">
-                <h2>My orders</h2>
+                <h2 th:text="#{profile.myOrders}">My orders</h2>
                 <table cellpadding="20" class="table table-stripped">
                     <thead>
                     <tr>
@@ -37,7 +37,7 @@
                     </tbody>
                     <tfoot>
                     <tr>
-                        TOTAl: <td th:text = "${total}"></td>
+                        <span th:text="#{profile.total}"></span>: <td th:text = "${total}"></td>
                     </tr>
                     </tfoot>
                 </table>

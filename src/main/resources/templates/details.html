@@ -10,31 +10,31 @@
                 <tbody>
                     <tr>
                         <td>
-                            Name :
+                            <span th:text="#{adminBook.name}"></span>
                         </td>
                         <td th:text = "${book.name}"></td>
                     </tr>
                     <tr>
                         <td>
-                            Price :
+                            <span th:text="#{adminBook.price}"></span>
                         </td>
                         <td th:text = "${book.price}"></td>
                     </tr>
                     <tr>
                         <td>
-                            Author :
+                            <span th:text="#{adminBook.author}"></span>
                         </td>
                         <td th:text = "${book.author}"></td>
                     </tr>
                     <tr>
                         <td>
-                            DESCRIPTION :
+                            <span th:text="#{adminBook.desc}"></span>
                         </td>
                         <td th:text = "${book.description}"></td>
                     </tr>
                     <tr>
                         <td>
-                            Genres :
+                            <span th:text="#{adminBook.genre}"></span>
                         </td>
                         <td th:each = "i : ${book.genres}"  th:text="${i.name}"></td>
                     </tr>
@@ -46,7 +46,9 @@
 <!--            </form>-->
                 <form th:action = "@{'/addOrder'}" method="post" sec:authorize="isAuthenticated()">
                     <input type="hidden" th:value = "${book.id}" name="id">
-                    <button class="btn btn-danger">ADD ORDER</button>
+                    <button class="btn btn-danger">
+                        <span th:text="#{addToOrder}"></span>
+                    </button>
                 </form>
         </div>
     </div>

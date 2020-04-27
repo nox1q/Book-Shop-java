@@ -28,41 +28,41 @@
                 <div class="collapse navbar-collapse" sec:authorize="isAnonymous()">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{'/'}">All Items</a>
+                            <a class="nav-link" th:href="@{'/'}" th:text="#{navbar.allItems}">All Items</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{'/registration'}">Register</a>
+                            <a class="nav-link" th:href="@{'/registration'}" th:text="#{navbar.register}">Register</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{'/login'}">Login</a>
+                            <a class="nav-link" th:href="@{'/login'}" th:text="#{navbar.login}">Login</a>
                         </li>
                     </ul>
                 </div>
                 <div class="collapse navbar-collapse" sec:authorize="isAuthenticated()">
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{'/'}">Home</a>
+                            <a class="nav-link" th:href="@{'/'}" th:text="#{navbar.home}">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" th:href="@{'/profile'}">Profile</a>
+                            <a class="nav-link" th:href="@{'/profile'}" th:text="#{navbar.profile}">Profile</a>
                         </li>
                         <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ADMIN')">
-                            <a class="nav-link" th:href="@{'addBook'}">Add Book</span></a>
+                            <a class="nav-link" th:href="@{'addBook'}" th:text="#{navbar.addBook}">Add Book</span></a>
                         </li>
                         <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ADMIN')">
-                            <a class="nav-link" th:href="@{'addUser'}">Add User</span></a>
+                            <a class="nav-link" th:href="@{'addUser'}" th:text="#{navbar.addUser}">Add User</span></a>
                         </li>
                         <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ADMIN')">
-                            <a class="nav-link" th:href="@{'books'}">All Books</span></a>
+                            <a class="nav-link" th:href="@{'books'}" th:text="#{navbar.allBooks}">All Books</span></a>
                         </li>
                         <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ADMIN')">
-                            <a class="nav-link" th:href="@{'users'}">All Users</span></a>
+                            <a class="nav-link" th:href="@{'users'}"  th:text="#{navbar.allUsers}">All Users</span></a>
                         </li>
                         <li class="nav-item" sec:authorize="hasAnyRole('ROLE_ADMIN')">
-                            <a class="nav-link" th:href="@{'orders'}">All Orders</span></a>
+                            <a class="nav-link" th:href="@{'orders'}" th:text="#{navbar.allOrders}">All Orders</span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="JavaScript:void(0)" onclick="toLogout()">Logout</a>
+                            <a class="nav-link" href="JavaScript:void(0)" onclick="toLogout()" th:text="#{navbar.logout}">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -76,32 +76,32 @@
             </script>
         </div>
         <div class="container-fluid mt-4">
-            <div class="row">
-                <div class="col-sm-4">
-                    <ul class="list-group" sec:authorize="hasAnyRole('ROLE_ADMIN')">
-                        <li class="list-group-item">All Items</li>
-                        <li class="list-group-item">Top Items</li>
-                        <li class="list-group-item">Electronics</li>
-                        <li class="list-group-item">Laptops</li>
-                        <li class="list-group-item">Mobile Phones</li>
-                    </ul>
-                    <ul class="list-group" sec:authorize="hasAnyRole('ROLE_MODERATOR')">
-                        <li class="list-group-item">All Items</li>
-                        <li class="list-group-item">Top Items</li>
-                    </ul>
-                    <ul class="list-group" sec:authorize="isAnonymous()">
-                        <li class="list-group-item">All Items</li>
-                    </ul>
-                    <ul class="list-group" sec:authorize="hasAnyRole('ROLE_USER')">
-                        <li class="list-group-item">PROFILE</li>
-                    </ul>
-                </div>
+            <div class="row" style="display: flex; justify-content: center;">
+<!--                <div class="col-sm-4">-->
+<!--                    <ul class="list-group" sec:authorize="hasAnyRole('ROLE_ADMIN')">-->
+<!--                        <li class="list-group-item">All Items</li>-->
+<!--                        <li class="list-group-item">Top Items</li>-->
+<!--                        <li class="list-group-item">Electronics</li>-->
+<!--                        <li class="list-group-item">Laptops</li>-->
+<!--                        <li class="list-group-item">Mobile Phones</li>-->
+<!--                    </ul>-->
+<!--                    <ul class="list-group" sec:authorize="hasAnyRole('ROLE_MODERATOR')">-->
+<!--                        <li class="list-group-item">All Items</li>-->
+<!--                        <li class="list-group-item">Top Items</li>-->
+<!--                    </ul>-->
+<!--                    <ul class="list-group" sec:authorize="isAnonymous()">-->
+<!--                        <li class="list-group-item">All Items</li>-->
+<!--                    </ul>-->
+<!--                    <ul class="list-group" sec:authorize="hasAnyRole('ROLE_USER')">-->
+<!--                        <li class="list-group-item">PROFILE</li>-->
+<!--                    </ul>-->
+<!--                </div>-->
                 <div class="col-sm-8" layout:fragment="myContent" style="min-height: 700px;">
                 </div>
             </div>
         </div>
         <div class="container-fluid mt-3 pt-3 pb-3" style="background-color: rgba(6,2,29,0.98)">
-            <p style="color: white;">Copyright 2020, All Rights Reserved</p>
+            <p style="color: white;" th:text="#{navbar.allRightsReserver}">Copyright 2020, All Rights Reserved</p>
         </div>
     </body>
 </html>
