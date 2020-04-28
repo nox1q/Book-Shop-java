@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorator="layouts/main.html">
 <div layout:fragment="myContent" >
-    <div class="row">
+    <div class="row" >
         <div class="col-sm-8">
             <form th:action="@{'/addBook'}" method="post" class="form" sec:authorize="hasAnyRole('ROLE_ADMIN')">
                 <div class="form-group">

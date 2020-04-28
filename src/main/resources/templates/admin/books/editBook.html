@@ -3,9 +3,9 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorator="layouts/main_no_sidebar.html">
 <div layout:fragment="myContent" >
-    <div class="row">
+    <div class="row" >
         <div class="col-sm-8">
-            <form th:action="@{'/editBook'}" method="post" class="form">
+            <form th:action="@{'/editBook'}" method="post" class="form" >
                 <div class="form-group">
                     <label>
                         <span th:text="#{adminBook.name}"></span>

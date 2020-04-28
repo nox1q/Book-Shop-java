@@ -3,9 +3,9 @@
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
       layout:decorator="layouts/main.html">
     <div layout:fragment="myContent" >
-        <div class="row">
+        <div class="row" >
             <div class="col-sm-8">
-                <form class="form-signin" th:action="@{'/auth'}" method="post">
+                <form class="form-signin" th:action="@{'/auth'}" method="post" >
                     <h2 class="form-signin-heading">Please sign in</h2>
                     <p th:if="${param.error}" class="error">Invalid user, password, or domain</p>
                     <p>
